@@ -41,7 +41,6 @@ function cargarProductosCarrito(){
                 </div>
                 <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash"></i></button>
             `;
-    
             contenedorCarritoProductos.append(div);
         });
     } else {
@@ -49,7 +48,6 @@ function cargarProductosCarrito(){
         contenedorCarritoProductos.classList.add("disabled");
         contenedorCarritoAcciones.classList.add("disabled");
         contenedorCarritoComprado.classList.add("disabled");
-    
     }
 
     actualizarBotonesEliminar()
@@ -57,7 +55,6 @@ function cargarProductosCarrito(){
 }
 
 cargarProductosCarrito();
-
 
 function actualizarBotonesEliminar() {
     botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
@@ -67,9 +64,27 @@ function actualizarBotonesEliminar() {
     });
   }
 
-
-
 function eliminarDelCarrito(e) {
+    Toastify({
+        text: "Producto eliminado",
+        duration: 3000,
+        close: true,
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+          background: "linear-gradient(to right, #cdc301, #333)",
+          borderRadius:"2rem",
+          textTransform:"uppercase",
+          fontSize:".7rem",
+        },
+        offset:{
+          x: '1.5rem',
+          y:'1.5rem',
+        },
+        onClick: function(){} 
+      }).showToast();
+    
     const idBoton = e.currentTarget.id;
     const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
    
@@ -79,13 +94,25 @@ function eliminarDelCarrito(e) {
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
 
-botoVaciar.addEventListener ("click", vaciarCarrito);
+botoVaciar.addEventListener("click", vaciarCarrito);
 
-function vaciarCarrito(){
-
-    productosEnCarrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-    cargarProductosCarrito();
+function vaciarCarrito() {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: `Se van a borrar ${productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0)} tus productos`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            productosEnCarrito.length = 0;
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+            cargarProductosCarrito();
+        }
+    });
 }
 
 function actualizarTotal(){

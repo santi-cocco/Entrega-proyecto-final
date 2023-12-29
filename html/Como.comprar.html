@@ -12,50 +12,45 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-dark">
-    <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-      aria-controls="offcanvasRight"><i class="bi bi-menu-down"></i>Menu</button>
+  <header class="navbar navbar-expand-lg encabezado container">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img class="logo" src="../imagenes/logo1.png" alt="Logo de Loyal company">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./Como.comprar.html">Como comprar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./Contacto.html">
+                  Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./Informacio.envio.html">Informacio de envio</a>
+              </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu de navegacion</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body bg-dark">
-        <ul class="menu">
-          <img class="imagen-home" src="../imagenes/Logo1.png" alt="foto de madera-a-medida">
-          <li>
-            <a class="boton-menu boton-categoria active" href="../index.html"> <i class="bi bi-hand-index-fill"></i>
-              Madera a medida</a>
-          </li>
-          <li>
-            <a class="boton-menu boton-categoria" href="../html/Como.comprar.html"><i class="bi bi-hand-index-fill"></i>
-              Cómo
-              comprar</a>
-          </li>
-          <li>
-            <a class="boton-menu boton-categoria" href="../html/Informacio.envio.html"><i
-                class="bi bi-hand-index-fill"></i>
-              Información de envío</a>
-          </li>
-          <li>
-            <a class="boton-menu boton-categoria" href="../html/Contacto.html"><i class="bi bi-hand-index-fill"></i>
-              Contacto</a>
-          </li>
-          <li>
-            <a class="boton-menu boton-categoria" href="../html/Estado.html"><i class="bi bi-hand-index-fill"></i> Estado
-              de
-              pedido</a>
-          </li>
-          <li>
-            <a class="boton-carrito" href="html/carrito.html"> <i class="bi bi-cart-fill"></i>carrito <span
-                class="numerito">0</span></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <h1>Cómo comprar</h1>
+
+  <section class="container">
+    <h1>Cómo comprar</h1>
   <hr>
 
   <p>Para realizar una compra en nuestra tienda en línea, sigue los siguientes pasos:</p>
@@ -72,6 +67,9 @@
   <p>Si tienes alguna duda durante el proceso de compra, no dudes en contactarnos a través de nuestra página de
     contacto. ¡Estamos aquí para ayudarte!</p>
 
+
+  </section>
+  
     <footer>
       <div class="footer-content">
         <div class="footer-column">

@@ -1,65 +1,20 @@
-const productos = [
-  {
-    id: "abedul",
-    titulo: "Abedul",
-    imagen: "./imagenes/abedul.jpg",
-    categoria: {
-      nombre: "maderas duras",
-      id: "maderas-duras",
-    },
-    precio:  4400 ,
-  },
-  {
-    id: "aliso",
-    titulo: "Aliso",
-    imagen: "./imagenes/aliso.jpg",
-    categoria: {
-      nombre: "maderas duras",
-      id: "maderas-duras",
-    },
-    precio: 1800 ,
-  },
-  {
-    id: "caoba",
-    titulo: "Caoba",
-    imagen: "./imagenes/caoba.jpg",
-    categoria: {
-      nombre: "maderas duras",
-      id: "maderas-duras",
-    },
-    precio: 1600 ,
-  },
-  {
-    id: "haya",
-    titulo: "Haya",
-    imagen: "./imagenes/haya.jpg",
-    categoria: {
-      nombre: "maderas blandas",
-      id: "maderas-blandas",
-    },
-    precio: 2100 ,
-  },
-  {
-    id: "roble",
-    titulo: "Roble",
-    imagen: "./imagenes/roble.jpg",
-    categoria: {
-      nombre: "maderas blandas",
-      id: "maderas-blandas",
-    },
-    precio: 2400 ,
-  },
-  {
-    id: "nogal",
-    titulo: "Nogal",
-    imagen: "./imagenes/nogal.jpg",
-    categoria: {
-      nombre: "maderas blandas",
-      id: "maderas-blandas",
-    },
-    precio: 3000 ,
-  },
-];
+let productos = [];
+
+async function cargarProductosDesdeJSON() {
+  try {
+      const response = await fetch("./JS/productos.json");
+      if (!response.ok) {
+          throw new Error(`Error al cargar productos. Estado de respuesta: ${response.status}`);
+      }
+      const data = await response.json();
+      productos = data;
+      cargarProductos(productos);
+  } catch (error) {
+      console.error("Error al cargar productos:", error);
+  }
+}
+cargarProductosDesdeJSON();
+
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
@@ -107,8 +62,6 @@ botonesCategorias.forEach(boton => {
   });
 });
 
-
-
 function actualizarBotonesAgregar() {
   botonesAgregar = document.querySelectorAll(".producto-agregar");
 
@@ -127,8 +80,27 @@ if(productosEnCarritoLS){
   productosEnCarrito = [];
 }
 
-
 function agregarAlCarrito(e) {
+
+  Toastify({
+    text: "Producto agregado",
+    duration: 3000,
+    close: true,
+    gravity: "top", 
+    position: "right", 
+    stopOnFocus: true, 
+    style: {
+      background: "linear-gradient(to right, #cdc301, #333)",
+      borderRadius:"2rem",
+      textTransform:"uppercase",
+      fontSize:".7rem",
+    },
+    offset:{
+      x: '1.5rem',
+      y:'1.5rem',
+    },
+    onClick: function(){}
+  }).showToast();
 
   const idBoton = e.currentTarget.id;
   const productoAgregado = productos.find(producto => producto.id === idBoton);
@@ -145,8 +117,12 @@ function agregarAlCarrito(e) {
   localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
 
-
 function actualizarNumerito(){
   let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
   numerito.innerText = nuevoNumerito
 }
+
+
+
+
+

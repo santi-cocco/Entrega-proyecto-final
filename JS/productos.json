@@ -1,0 +1,62 @@
+[
+    {
+      "id": "abedul",
+      "titulo": "Abedul",
+      "imagen": "./imagenes/abedul.jpg",
+      "categoria": {
+        "nombre": "maderas duras",
+        "id": "maderas-duras"
+      },
+      "precio":  4400 
+    },
+    {
+      "id": "aliso",
+      "titulo": "Aliso",
+      "imagen": "./imagenes/aliso.jpg",
+      "categoria": {
+        "nombre": "maderas duras",
+        "id": "maderas-duras"
+      },
+      "precio": 1800 
+    },
+    {
+      "id": "caoba",
+      "titulo": "Caoba",
+      "imagen": "./imagenes/caoba.jpg",
+      "categoria": {
+        "nombre": "maderas duras",
+        "id": "maderas-duras"
+      },
+      "precio": 1600 
+    },
+    {
+      "id": "haya",
+      "titulo": "Haya",
+      "imagen": "./imagenes/haya.jpg",
+      "categoria": {
+        "nombre": "maderas blandas",
+        "id": "maderas-blandas"
+      },
+      "precio": 2100 
+    },
+    {
+      "id": "roble",
+      "titulo": "Roble",
+      "imagen": "./imagenes/roble.jpg",
+      "categoria": {
+        "nombre": "maderas blandas",
+        "id": "maderas-blandas"
+      },
+      "precio": 2400 
+    },
+    {
+      "id": "nogal",
+      "titulo": "Nogal",
+      "imagen": "./imagenes/nogal.jpg",
+      "categoria": {
+        "nombre": "maderas blandas",
+        "id": "maderas-blandas"
+      },
+      "precio": 3000 
+    }
+  ]
